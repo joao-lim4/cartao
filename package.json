@@ -1,0 +1,26 @@
+{
+  "name": "cartao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joao-lim4/cartao.git"
+  },
+  "author": "Lima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joao-lim4/cartao/issues"
+  },
+  "homepage": "https://github.com/joao-lim4/cartao#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "dependencies": {
+    "node-base64-image": "^2.0.3"
+  }
+}
