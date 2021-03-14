@@ -59,5 +59,13 @@ const gerarCartao = (type,options=null) => {
 
 // console.log(teste.ptBr.checkBandeiraToImage([elo,master,visa]));
 
+let options = {
+    image: true,
+    mask: true,
+    fullData: true,
+    singleNumber: false,
+}
+
+console.log(gerarCartao('Elo',options));
 
 export default Cartoes;
