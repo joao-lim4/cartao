@@ -13,26 +13,27 @@ const Cartoes = {
     ptBr: {
         checkBandeira: v => checkBandeira(v),
         checkBandeiraToImage: v => checkBandeiraToImage(v),
+        gerarCartao: (type,options=null) => gerarCartao(type,options)
     }
-}
+};
 
 const checkBandeira = (n) => {
     if(!n || n === 'undefined'){
-        return 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
+        throw 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
     }
     return new MainPTBR(n)._checkBandeira();
 }
 
 const checkBandeiraToImage = (n,image=true) => {
     if(!n || n === 'undefined'){
-        return 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
+        throw 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
     }
     return  new MainPTBR()._checkBandeiraToImage(n,image);
 }
 
 const gerarCartao = (type,options=null) => {
     if(!type || typeof type === 'undefined'){
-        return {
+        throw {
             error: true,
             message: 'Tipo do valor errado, parametros do tipo String || Array',
             params: [
@@ -45,27 +46,5 @@ const gerarCartao = (type,options=null) => {
     return new GerarCartao(options).gerarCartao(type);
 }
 
-// const teste = {
-//     ptBr: {
-//         checkBandeira: v => checkBandeira(v),
-//         checkBandeiraToImage: v =>  checkBandeiraToImage(v),
-//     }
-// }
-// let master = '5464 7159 6039 8015';
-// let elo = '5067 2253 9804 7854';
-// let visa = '4532 5522 0793 4349';
-
-// console.log(teste.ptBr.checkBandeira([elo,master,visa]));
-
-// console.log(teste.ptBr.checkBandeiraToImage([elo,master,visa]));
-
-let options = {
-    // image: true,
-    // mask: true,
-    // fullData: true ,
-    singleNumber: true,
-}
-
-console.log(gerarCartao('Elo',options));
 
 export default Cartoes;

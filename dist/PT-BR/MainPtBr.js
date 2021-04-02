@@ -1,11 +1,20 @@
 import DefautlCards from './catoes-pt-br/cartoes-pt-br';
-import {encode} from 'node-base64-image';
+
 
 
 export default class MainPTBR {
     constructor(numeros=null){
         this._numberParse = String(numeros).split(' ');
-        this._fullValue = numeros; 
+        this._fullValue = {
+            full: numeros,
+            set FullValue(param){
+                if(typeof this.full === 'object'){
+                    this.full = [...numeros];
+                }else{
+                    this.full = [this.full];
+                }
+            }
+        }; 
         this._infosStringOfMask = '';
         this.objectBandeiras = {
             cards: {},
@@ -16,33 +25,30 @@ export default class MainPTBR {
             }
         }
         this.objectBandeiras.UpdateCards = DefautlCards.DefautlCards;
-    }
-
-    _checkBandeira(){
-        if(this._privateChecktypeValue(this._fullValue).type === 'String'){
-            return this._privateDefineBandeira( this._removeMasck());
-        }else{
-            let nR = [];
-            this._fullValue.forEach((v,i) => {
-                nR.push(this._priveteDefineBandeiraArray(this._removeMasckUnicValue(v,i)));
-            });
-
-            return nR;
-        }
-       
         
     }
 
-    _priveteDefineBandeiraArray(v){
+    _checkBandeira(){
+        this._fullValue.FullValue = false;
+
+        let nR = [];
+        this._fullValue.full.forEach((v,i) => {
+            nR.push(this._priveteDefineBandeiraArray(this._removeMasckUnicValue(v,i)));
+        });
+
+        return nR;
+    }
+
+    _priveteDefineBandeiraArray(CardObject){
 
         for(let i = 0; i < this.objectBandeiras.cards.elo.in.length;i++){
-            if(String(v.substringln).indexOf(String(this.objectBandeiras.cards.elo.in[i])) != -1){
+            if(String(CardObject.substringln).indexOf(String(this.objectBandeiras.cards.elo.in[i])) != -1){
                 return {
                     success: true,
-                    dataValue: v.stringFull,
+                    dataValue: CardObject.stringFull,
                     mask: {
                         active: false,
-                        valueOffMask: v.string,
+                        valueOffMask: CardObject.string,
                     },
                     typeOfbandeira: 'Elo',
                     ObjectDataBandeira: this.objectBandeiras.cards.elo
@@ -50,14 +56,14 @@ export default class MainPTBR {
             }
         }
 
-        switch (v.substringIn) {
+        switch (CardObject.substringIn) {
             case '5':
                 return {
                     success: true,
-                    dataValue: v.stringFull,
+                    dataValue: CardObject.stringFull,
                     mask: {
                         active: false,
-                        valueOffMask: v.string,
+                        valueOffMask: CardObject.string,
                     },
                     typeOfbandeira: 'MasterCard',
                     ObjectDataBandeira: this.objectBandeiras.cards.masterCard
@@ -65,10 +71,10 @@ export default class MainPTBR {
             case '4':
                 return {
                     success: true,
-                    dataValue: v.stringFull,
+                    dataValue: CardObject.stringFull,
                     mask: {
                         active: false,
-                        valueOffMask: v.string,
+                        valueOffMask: CardObject.string,
                     },
                     typeOfbandeira: 'Visa',
                     ObjectDataBandeira: this.objectBandeiras.cards.visa
@@ -82,70 +88,6 @@ export default class MainPTBR {
                 };
         }
 
-
-    }
-
-    _privateDefineBandeira(object){
-        if(typeof object === 'object'){
-
-            for(let i = 0; i < this.objectBandeiras.cards.elo.in.length; i++){
-                if(object.substringln.indexOf(String(this.objectBandeiras.cards.elo.in[i])) != -1){
-                    return {
-                        success: true,
-                        valueData: this._fullValue,
-                        bandeira: {
-                            compact: true,
-                            bandeira: 'Elo',
-                            objectData: this.objectBandeiras.cards.elo
-                        }
-                    };
-                }
-            }
-
-            if(object.substringIn == '5'){
-                return {
-                    success: true,
-                    valueData: this._fullValue,
-                    bandeira: {
-                        compact: true,
-                        bandeira: 'MasterCard',
-                        objectData: this.objectBandeiras.cards.masterCard
-                    }
-                };
-            }else if(object.substringIn == '4') { 
-                return {
-                    success: true,
-                    valueData: this._fullValue,
-                    bandeira: {
-                        compact: true,
-                        bandeira: 'Visa',
-                        objectData: this.objectBandeiras.cards.visa
-                    }
-                };
-            }else{
-                return {
-                    success: false,
-                    bandeira: 'Não identificada',
-                    erros: undefined,
-                    message: "Verifique o valos passado para a função. Valores aceitos: String or Array"
-                }
-            }
-        }
-    }
-    
-    _removeMasck(){
-        let __NewString = '';
-        this._numberParse.forEach(s => {
-            __NewString = __NewString + s;
-        });
-
-        return  {
-            string: __NewString,
-            mask: false,
-            length: __NewString.length,
-            substringln: String(__NewString.substring(0,5)),
-            substringIn: String(__NewString.substring(0,1))
-        };
 
     }
 
@@ -164,32 +106,6 @@ export default class MainPTBR {
             substringln: String(nV.substring(0,5)),
             substringIn: String(nV.substring(0,1))
         };
-    }
-
-    _privateChecktypeValue(value){
-        if(typeof value === 'string'){
-            return {
-                success: true,
-                type: 'String',
-            };
-        };
-
-        if(typeof value === 'object'){
-            value.forEach((v,i) => {
-                if(typeof v !== 'string'){
-                    return {
-                        error: true,
-                        message: 'O valor passado dentro do array não é do tipo string',
-                        espec: 'Posição do array com erro:' + i 
-                    };
-                }
-            });
-
-            return {
-                success: true,
-                type: 'Object Array',
-            };
-        }
     }
 
     _checkBandeiraToImage(v, url){

@@ -1,7 +1,7 @@
 /*
     V1.0.0.
     * object default, esse objecto inclui os pricipais cartoes de credito usados no brasil
-    * apenas retornando true || false incluindo a bandeira do cartao passado
+    * 
 */
 
 const DefautlCards = {
