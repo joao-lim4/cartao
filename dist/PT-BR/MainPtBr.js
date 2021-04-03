@@ -1,4 +1,4 @@
-import DefautlCards from './catoes-pt-br/cartoes-pt-br';
+const DefautlCards = require('./catoes-pt-br/cartoes-pt-br');
 
 
 
@@ -24,7 +24,7 @@ export default class MainPTBR {
                 }
             }
         }
-        this.objectBandeiras.UpdateCards = DefautlCards.DefautlCards;
+        this.objectBandeiras.UpdateCards = DefautlCards.default.DefautlCards;
         
     }
 
