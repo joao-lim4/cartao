@@ -1,8 +1,5 @@
-// import MainPTBR from './dist/PT-BR/MainPtBr';
-// import GerarCartao from './dist/utils/GenerateCartao';
-
-const MainPTBR = require('./dist/PT-BR/MainPtBr');
-const GerarCartao = require('./dist/utils/GenerateCartao');
+import MainPTBR from './dist/PT-BR/MainPtBr';
+import GerarCartao from './dist/utils/GenerateCartao';
 
 /**
  * Title checkBandeira
@@ -24,14 +21,14 @@ const checkBandeira = (n) => {
     if(!n || n === 'undefined'){
         throw 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
     }
-    return new MainPTBR.default(n)._checkBandeira();
+    return new MainPTBR(n)._checkBandeira();
 }
 
 const checkBandeiraToImage = (n,image=true) => {
     if(!n || n === 'undefined'){
         throw 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
     }
-    return  new MainPTBR.default()._checkBandeiraToImage(n,image);
+    return  new MainPTBR()._checkBandeiraToImage(n,image);
 }
 
 const gerarCartao = (type,options=null) => {
@@ -46,9 +43,8 @@ const gerarCartao = (type,options=null) => {
             
         }
     }
-    return new GerarCartao.default(options).gerarCartao(type);
+    return new GerarCartao(options).gerarCartao(type);
 }
 
-console.log(Cartoes.ptBr.gerarCartao('elo'))
 
 export default Cartoes;

@@ -1,5 +1,4 @@
-// import Cards from '../PT-BR/catoes-pt-br/cartoes-pt-br';
-const Cards = require('../PT-BR/catoes-pt-br/cartoes-pt-br');
+import Cards from '../PT-BR/catoes-pt-br/cartoes-pt-br';
 
 export default class GenerateCartao {
 
@@ -131,11 +130,11 @@ export default class GenerateCartao {
     _switchCards(type){
         switch ((type.toLowerCase())) {
             case 'elo':
-                return this._generateData(this._generateNumber(Cards.default.DefautlCards.elo.in), 'Elo');
+                return this._generateData(this._generateNumber(Cards.DefautlCards.elo.in), 'Elo');
             case 'mastercard': 
-                return this._generateData(this._generateNumber(Cards.default.DefautlCards.masterCard.in), 'MasterCard'); 
+                return this._generateData(this._generateNumber(Cards.DefautlCards.masterCard.in), 'MasterCard'); 
             case 'visa':
-                return this._generateData(this._generateNumber(Cards.default.DefautlCards.elo.in), 'Visa');  
+                return this._generateData(this._generateNumber(Cards.DefautlCards.elo.in), 'Visa');  
             default:
                 return {
                     error: true,
