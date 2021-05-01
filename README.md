@@ -125,9 +125,6 @@ usandoTodasAsFuncoesDisponiveis();
 
 ## Obteve algum erro?
 Entre em contato comigo me falando do erro, que resolverei assim que possível.
-Nesse momento estou trabalhando na resolução de bugs na função que gera um cartão de crédito!
-Farei o push assim que estiver pronta!
-
 
 
 
