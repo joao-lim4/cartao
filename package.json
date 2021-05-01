@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/joao-lim4/cartao.git"
   },
+  "keywords": ["dependencies","cartão","validate","flag","Cards", "Cartão","Cartões","bandeiras", "credito","flag card"],
   "author": "Lima",
   "license": "ISC",
   "bugs": {
