@@ -1,6 +1,6 @@
 /*
     V1.0.0.
-    * object default, esse objecto inclui os pricipais cartoes de credito usados no brasil
+    * object default, esse objeto inclui os pricipais cartoes de credito usados no brasil
     * 
 */
 

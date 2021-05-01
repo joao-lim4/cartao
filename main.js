@@ -47,6 +47,5 @@ const gerarCartao = (type,options=null) => {
 }
 
 
-
 export default Cartoes;
 

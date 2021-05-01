@@ -40,7 +40,6 @@ export default class MainPTBR {
     }
 
     _priveteDefineBandeiraArray(CardObject){
-
         for(let i = 0; i < this.objectBandeiras.cards.elo.in.length;i++){
             if(String(CardObject.substringln).indexOf(String(this.objectBandeiras.cards.elo.in[i])) != -1){
                 return {
@@ -84,7 +83,7 @@ export default class MainPTBR {
                     success: false,
                     bandeira: 'Não identificada',
                     erros: undefined,
-                    message: "Verifique o valos passado para a função. Valores aceitos: String or Array"
+                    message: "Verifique o valores passado para a função. Valores aceitos: String or Array"
                 };
         }
 
@@ -103,7 +102,7 @@ export default class MainPTBR {
             indice: i,
             mask: false,
             length: nV.length,
-            substringln: String(nV.substring(0,5)),
+            substringln: String(nV.substring(0,6)),
             substringIn: String(nV.substring(0,1))
         };
     }

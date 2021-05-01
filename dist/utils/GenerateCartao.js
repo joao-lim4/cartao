@@ -84,7 +84,7 @@ export default class GenerateCartao {
         return num;
     }
 
-    _generateData(card,type,){
+    _generateData(card,type){
         if(this._options.fullData){
             return {
                 success: true,
@@ -134,7 +134,7 @@ export default class GenerateCartao {
             case 'mastercard': 
                 return this._generateData(this._generateNumber(Cards.DefautlCards.masterCard.in), 'MasterCard'); 
             case 'visa':
-                return this._generateData(this._generateNumber(Cards.DefautlCards.elo.in), 'Visa');  
+                return this._generateData(this._generateNumber(Cards.DefautlCards.visa.in), 'Visa');  
             default:
                 return {
                     error: true,
