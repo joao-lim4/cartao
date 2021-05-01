@@ -24,11 +24,11 @@ const checkBandeira = (n) => {
     return new MainPTBR(n)._checkBandeira();
 }
 
-const checkBandeiraToImage = (n,image=true) => {
+const checkBandeiraToImage = (n) => {
     if(!n || n === 'undefined'){
         throw 'O valor passador é inválido, passe um argumanto do tipo string || um array de strings';
     }
-    return  new MainPTBR()._checkBandeiraToImage(n,image);
+    return  new MainPTBR()._checkBandeiraToImage(n);
 }
 
 const gerarCartao = (type,options=null) => {
@@ -45,7 +45,6 @@ const gerarCartao = (type,options=null) => {
     }
     return new GerarCartao(options).gerarCartao(type);
 }
-
 
 
 

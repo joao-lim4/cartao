@@ -108,33 +108,34 @@ export default class MainPTBR {
         };
     }
 
-    _checkBandeiraToImage(v, url){
+    _checkBandeiraToImage(v){
         if(typeof v === 'string'){
-            let objectSet = this._privateDefineBandeira(this._removeMasckUnicValue(v,'String || Single value'));
-            if(url){   
-                objectSet.bandeira.encode = {
-                    encode: false,
-                    type: 'url',
-                    image: {
-                        url: `http://api-bfs.worktab.com.br/assets/bandeiras/${objectSet.bandeira.bandeira == 'Elo' ? 'elo' : objectSet.bandeira.bandeira == 'Visa' ? 'visa' : 'master'}.png` ,
-                    } 
-                }
-                return objectSet;
+            let objectSet = this._priveteDefineBandeiraArray(this._removeMasckUnicValue(v,'String || Single value'));
+           
+            objectSet.encode = {
+                encode: false,
+                type: 'url',
+                image: {
+                    url: `http://api-bfs.worktab.com.br/assets/bandeiras/${objectSet.typeOfbandeira == 'Elo' ? 'elo' : objectSet.typeOfbandeira == 'Visa' ? 'visa' : 'master'}.png` ,
+                } 
             }
+            
+            return objectSet;
+            
         }else{
             let nR = [];
             v.forEach((v,i) => {
                 let res = (this._priveteDefineBandeiraArray(this._removeMasckUnicValue(v,i)));
-                if(url){
-                    res.encode = {
-                        encode: false,
-                        type: 'url',
-                        image: {
-                            url: `http://api-bfs.worktab.com.br/assets/bandeiras/${res.typeOfbandeira == 'Elo' ? 'elo' : res.typeOfbandeira == 'Visa' ? 'visa' : 'master'}.png` ,
-                        } 
-                    }
-                    nR.push(res);
+            
+                res.encode = {
+                    encode: false,
+                    type: 'url',
+                    image: {
+                        url: `http://api-bfs.worktab.com.br/assets/bandeiras/${res.typeOfbandeira == 'Elo' ? 'elo' : res.typeOfbandeira == 'Visa' ? 'visa' : 'master'}.png` ,
+                    } 
                 }
+                nR.push(res);
+                
             });
 
             return nR;

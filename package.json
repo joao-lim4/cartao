@@ -11,7 +11,18 @@
     "type": "git",
     "url": "git+https://github.com/joao-lim4/cartao.git"
   },
-  "keywords": ["dependencies","cartão","validate","flag","Cards", "Cartão","Cartões","bandeiras", "credito","flag card"],
+  "keywords": [
+    "dependencies",
+    "cartão",
+    "validate",
+    "flag",
+    "Cards",
+    "Cartão",
+    "Cartões",
+    "bandeiras",
+    "credito",
+    "flag card"
+  ],
   "author": "Lima",
   "license": "ISC",
   "bugs": {
@@ -22,6 +33,5 @@
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
