@@ -1,9 +1,9 @@
-import MainPTBR from './dist/PT-BR/MainPtBr';
-import GerarCartao from './dist/utils/GenerateCartao';
+import MainPTBR from './dist/PT-BR/MainPtBr.js';
+import GerarCartao from './dist/utils/GenerateCartao.js';
 
 /**
  * Title checkBandeira
- * Descrição: Checar a qual bandeira pertence o cartão pertence, uma funçåo simples
+ * Descrição: Checar qual bandeira pertence o cartão.
  * 
  * @param number type String || Array 
  * @returns 
@@ -19,14 +19,14 @@ const Cartoes = {
 
 const checkBandeira = (n) => {
     if(!n || n === 'undefined'){
-        throw 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
+        throw 'O valor passador é inválido, passe um argumanto do tipo string || um array de strings';
     }
     return new MainPTBR(n)._checkBandeira();
 }
 
 const checkBandeiraToImage = (n,image=true) => {
     if(!n || n === 'undefined'){
-        throw 'O valor passador é inválido, passae um argumanto do tipo string || um array de strings';
+        throw 'O valor passador é inválido, passe um argumanto do tipo string || um array de strings';
     }
     return  new MainPTBR()._checkBandeiraToImage(n,image);
 }
@@ -47,4 +47,7 @@ const gerarCartao = (type,options=null) => {
 }
 
 
+
+
 export default Cartoes;
+

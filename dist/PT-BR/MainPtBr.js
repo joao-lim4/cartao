@@ -1,4 +1,4 @@
-import DefautlCards from './catoes-pt-br/cartoes-pt-br';
+import DefautlCards from './catoes-pt-br/cartoes-pt-br.js';
 
 
 

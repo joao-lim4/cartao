@@ -72,8 +72,8 @@ export default class GenerateCartao {
     _generateMaks(num){
         /* 
             referencia 
-            https://wbruno.com.br/expressao-regular/mascara-cartao-de-credito-com-javascript-e-expressao-regular-regex/
             regex tirada do site
+            https://wbruno.com.br/expressao-regular/mascara-cartao-de-credito-com-javascript-e-expressao-regular-regex/
         */
 
         num=num.replace(/\D/g,"")
