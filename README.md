@@ -119,6 +119,23 @@ function gerarCartao(type){
     return Validate.ptBr.gerarCartao(type, options);
 }
 
+
+function validateBandeiraToRegex(number, type) {
+    /**
+     * @params
+     * @number String
+     * @type String Ex: br // outros
+     * 
+     * Direfenca entre @type == br && @type == outros
+     * @type == br o numero do cartão de credito ira passar somente pelas regex das bandeiras mais usadas no Brasil como Visa | Elo | MasterCard
+     * 
+     * @type == outros o número do cartão passara por outras bandeiras como Amex 
+     * @type defaut value br
+    */
+
+    return Validate.ptBr.checkBandeiraToRegex(number, type);
+}
+
 usandoTodasAsFuncoesDisponiveis();
 ```
 

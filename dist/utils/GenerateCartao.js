@@ -143,3 +143,6 @@ export default class GenerateCartao {
         }
     }
 }
+
+
+export const GenerateMask = num => new GenerateCartao()._generateMaks(num);
