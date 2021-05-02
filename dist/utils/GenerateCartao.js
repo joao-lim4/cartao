@@ -1,4 +1,4 @@
-import Cards from '../PT-BR/catoes-pt-br/cartoes-pt-br.js';
+import Cards from '../lib/cards/cartoes-pt-br.js';
 
 export default class GenerateCartao {
 

@@ -1,4 +1,4 @@
-import MainPTBR from './dist/PT-BR/MainPtBr.js';
+import Main from './dist/lib/Main.js';
 import GerarCartao from './dist/utils/GenerateCartao.js';
 import ValidateToRegex from './dist/utils/ValidateToRegex.js';
 /**
@@ -22,14 +22,14 @@ const checkBandeira = (n) => {
     if(!n || n === 'undefined'){
         throw 'O valor passador é inválido, passe um argumanto do tipo string || um array de strings';
     }
-    return new MainPTBR(n)._checkBandeira();
+    return new Main(n)._checkBandeira();
 }
 
 const checkBandeiraToImage = (n) => {
     if(!n || n === 'undefined'){
         throw 'O valor passador é inválido, passe um argumanto do tipo string || um array de strings';
     }
-    return  new MainPTBR()._checkBandeiraToImage(n);
+    return  new Main()._checkBandeiraToImage(n);
 }
 
 const checkBandeiraToRegex = (n, type) => {

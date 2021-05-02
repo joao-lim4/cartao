@@ -1,8 +1,8 @@
-import DefautlCards from './catoes-pt-br/cartoes-pt-br.js';
+import DefautlCards from './cards/cartoes-pt-br.js';
 
 
 
-export default class MainPTBR {
+export default class Main {
     constructor(numeros=null){
         this._numberParse = String(numeros).split(' ');
         this._fullValue = {
