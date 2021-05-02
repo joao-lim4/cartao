@@ -33,76 +33,35 @@ export default class Main {
 
         let nR = [];
         this._fullValue.full.forEach((v,i) => {
-            nR.push(this._priveteDefineBandeiraArray(this._removeMasckUnicValue(v,i)));
+            nR.push(this._privateDefineBandeira(this._removeMasckUnicValue(v,i)));
         });
 
         return nR;
     }
 
-    _priveteDefineBandeiraArray(CardObject){
-        for(let i = 0; i < this.objectBandeiras.cards.elo.in.length;i++){
-            if(String(CardObject.substringln).indexOf(String(this.objectBandeiras.cards.elo.in[i])) != -1){
-                return {
-                    success: true,
-                    dataValue: CardObject.stringFull,
-                    mask: {
-                        active: false,
-                        valueOffMask: CardObject.string,
-                    },
-                    typeOfbandeira: 'Elo',
-                    ObjectDataBandeira: this.objectBandeiras.cards.elo
-                }
-            }
+    _privateDefineBandeira(CardObject){
+        
+        const regexValidate = ValidateToRegex(CardObject.string, 'br');
+        
+        if(regexValidate.value){
+            return {
+                success: true,
+                dataValue: CardObject.stringFull,
+                mask: {
+                    active: false,
+                    valueOffMask: CardObject.string,
+                },
+                typeOfbandeira: regexValidate.bandeira,
+                ObjectDataBandeira: this.objectBandeiras.cards[`${regexValidate.bandeira}`]
+            };
         }
 
-        switch (CardObject.substringIn) {
-            case '5':
-                return {
-                    success: true,
-                    dataValue: CardObject.stringFull,
-                    mask: {
-                        active: false,
-                        valueOffMask: CardObject.string,
-                    },
-                    typeOfbandeira: 'MasterCard',
-                    ObjectDataBandeira: this.objectBandeiras.cards.masterCard
-                };
-            case '4':
-                return {
-                    success: true,
-                    dataValue: CardObject.stringFull,
-                    mask: {
-                        active: false,
-                        valueOffMask: CardObject.string,
-                    },
-                    typeOfbandeira: 'Visa',
-                    ObjectDataBandeira: this.objectBandeiras.cards.visa
-                };
-            default:
-                const regexValidate = ValidateToRegex(CardObject.string, 'br');
-                
-                if(regexValidate.value){
-                    return {
-                        success: true,
-                        dataValue: CardObject.stringFull,
-                        mask: {
-                            active: false,
-                            valueOffMask: CardObject.string,
-                        },
-                        typeOfbandeira: regexValidate.value,
-                        ObjectDataBandeira: this.objectBandeiras.cards[`${regexValidate.bandeira}`]
-                    };
-                }
-
-                return {
-                    success: false,
-                    bandeira: 'Não identificada',
-                    erros: undefined,
-                    message: "Verifique o valores passado para a função. Valores aceitos: String or Array"
-                };
-        }
-
-
+        return {
+            error: true,
+            bandeira: 'Não identificada',
+            message: "Verifique o valores passado para a função. Valores aceitos: String or Array"
+        };
+    
     }
 
     _removeMasckUnicValue(m,i){
@@ -124,13 +83,13 @@ export default class Main {
 
     _checkBandeiraToImage(v){
         if(typeof v === 'string'){
-            let objectSet = this._priveteDefineBandeiraArray(this._removeMasckUnicValue(v,'String || Single value'));
+            let objectSet = this._privateDefineBandeira(this._removeMasckUnicValue(v,'String || Single value'));
            
             objectSet.encode = {
                 encode: false,
                 type: 'url',
                 image: {
-                    url: `http://api-bfs.worktab.com.br/assets/bandeiras/${objectSet.typeOfbandeira == 'Elo' ? 'elo' : objectSet.typeOfbandeira == 'Visa' ? 'visa' : 'master'}.png` ,
+                    url: `http://api-bfs.worktab.com.br/assets/bandeiras/${objectSet.typeOfbandeira == 'elo' ? 'elo' : objectSet.typeOfbandeira == 'visa' ? 'visa' : 'master'}.png` ,
                 } 
             }
             
@@ -139,7 +98,7 @@ export default class Main {
         }else{
             let nR = [];
             v.forEach((v,i) => {
-                let res = (this._priveteDefineBandeiraArray(this._removeMasckUnicValue(v,i)));
+                let res = (this._privateDefineBandeira(this._removeMasckUnicValue(v,i)));
             
                 res.encode = {
                     encode: false,

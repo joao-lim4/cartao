@@ -121,6 +121,31 @@ function gerarCartao(type){
 
 
 function validateBandeiraToRegex(number, type) {
+
+   /**
+    * Se quiser somente a validação da bandeira, pode utilizar essa função,
+    * ela irá retornar true || false juntamente a bandeira.
+    * Exemplo de retorno:
+    *   ------------------ ERROS ------------------
+    *   se o valor passado não der match com nenhuma regex ele retorna {
+    *       error: true,
+    *       message: "Bandeira não encontrada"
+    *   },
+    *
+    *   se o valor do número passado não for uma String {
+    *       error: true,
+    *       message: "Valor passado incorretamente, tente passar um valor do tipo String."
+    *   }
+    *   ------------------ RETORNO ESPERADO ------------------
+    *   {
+    *      value: ( número passado como parâmetro da função ),
+    *      mask: ( número com máscara ),
+    *      bandeira: ( bandeira ex: Elo || MasterCard || Visa ),
+    *   }
+   */
+
+
+
     /**
      * @params
      * @number String
