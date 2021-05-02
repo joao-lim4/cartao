@@ -1,5 +1,5 @@
 import DefautlCards from './cards/cartoes-pt-br.js';
-
+import ValidateToRegex from '../utils/ValidateToRegex.js'
 
 
 export default class Main {
@@ -79,6 +79,21 @@ export default class Main {
                     ObjectDataBandeira: this.objectBandeiras.cards.visa
                 };
             default:
+                const regexValidate = ValidateToRegex(CardObject.string, 'br');
+                
+                if(regexValidate.value){
+                    return {
+                        success: true,
+                        dataValue: CardObject.stringFull,
+                        mask: {
+                            active: false,
+                            valueOffMask: CardObject.string,
+                        },
+                        typeOfbandeira: regexValidate.value,
+                        ObjectDataBandeira: this.objectBandeiras.cards[`${regexValidate.bandeira}`]
+                    };
+                }
+
                 return {
                     success: false,
                     bandeira: 'Não identificada',
