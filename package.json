@@ -1,6 +1,6 @@
 {
   "name": "validate-flag",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "type": "module",
   "description": "Essa biblioteca tem como função validar as principais bandeiras de cartões de créditos usados no brasil",
   "main": "main.js",
