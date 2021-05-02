@@ -44,11 +44,8 @@ export default class GenerateCartao {
 
 
     _generateNumber(ini){
-        if(typeof ini === 'object' && ini.length){
-            ini = [...ini];
-        }else{
-            ini = [ini];
-        }
+        
+        ini = [...ini];
 
         ini = String(ini[Math.floor(Math.random() * (Math.floor(ini.length) - Math.ceil(0)) + Math.ceil(0))]);
 

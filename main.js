@@ -50,9 +50,8 @@ const gerarCartao = (type,options=null) => {
             
         }
     }
-    return new GerarCartao(options).gerarCartao(type);
+    return new GerarCartao(options == null ? {} : options).gerarCartao(type);
 }
-
 
 export default Cartoes;
 
