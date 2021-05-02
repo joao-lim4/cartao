@@ -1,13 +1,12 @@
 import Main from './dist/lib/Main.js';
 import GerarCartao from './dist/utils/GenerateCartao.js';
 import ValidateToRegex from './dist/utils/ValidateToRegex.js';
+
 /**
- * Title checkBandeira
- * Descrição: Checar qual bandeira pertence o cartão.
- * 
- * @param number type String || Array 
- * @returns 
- */
+ * Autor Lima;
+ * Descrição: Validar bandeiras de catões de créditor mais usadas no Brasil.
+ *
+*/
 
 const Cartoes = {
     ptBr: {
@@ -53,8 +52,6 @@ const gerarCartao = (type,options=null) => {
     }
     return new GerarCartao(options).gerarCartao(type);
 }
-
-
 
 
 export default Cartoes;
