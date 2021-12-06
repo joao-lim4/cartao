@@ -16,9 +16,6 @@
 ## About
 NPM package to validate Brazilian credit card flags, still under development.
 Any suggestion or improvement can contact me!
-Currently it is supported only for ES.
-
-Recently add the superte for TypeScripy, considering that in order to use the TypeScript version it is necessary to remove the ```type: module``` from the ```package.json``` I still don't know how to solve this problem. If you know how to solve it, contact me.
 
 ### Installation
 
@@ -30,7 +27,7 @@ Recently add the superte for TypeScripy, considering that in order to use the Ty
 
 
 
-## JavaScript Usage
+## Usage
 
 1. Import the package
 
@@ -45,9 +42,9 @@ import Validate from 'validate-flag';
 
 function usingAllFunctions(){
 
-    const generateCardNumber = generateCardNumber('Elo');
-    const flagType = checkOnlyTheFlag(generateCardNumber.value, /* true */);
-    const flagTypeWithImage = checkTheFlagAndImage(generateCardNumber.value, /* true */);
+    const generateCardNumber = Validate.generateCardNumber('Elo');
+    const flagType = Validate.checkOnlyTheFlag(generateCardNumber.value, /* true */);
+    const flagTypeWithImage = Validate.checkTheFlagAndImage(generateCardNumber.value, /* true */);
 
 }
 
@@ -67,7 +64,7 @@ function checkOnlyTheFlag(numbers, useStandardNumbers=false){
         "4929054385222820" //Visa
     ];
 
-    return Validate.ptBr.checkBandeira(!useStandardNumbers ? numbers : testNumbers);
+    return Validate.checkBandeira(!useStandardNumbers ? numbers : testNumbers);
 }
 
 
@@ -87,7 +84,7 @@ function checkTheFlagAndImage(numbers, useStandardNumbers=false){
         "4929054385222820" //Visa
     ];
 
-    return Validate.ptBr.checkBandeiraToImage(!useStandardNumbers ? numbers : testNumbers);
+    return Validate.checkBandeiraToImage(!useStandardNumbers ? numbers : testNumbers);
 }
 
 
@@ -118,7 +115,7 @@ function generateCard(type){
 
 
 
-    return Validate.ptBr.gerarCartao(type, options);
+    return Validate.gerarCartao(type, options);
 }
 
 
@@ -160,26 +157,11 @@ function checkFlagUsingRegex(number, type) {
          * @type defaut value en
     */
 
-    return Validate.ptBr.checkBandeiraToRegex(number, type);
+    return Validate.checkBandeiraToRegex(number, type);
 }
 
 usingAllFunctions();
 ```
-
-## TypeScript usage
-
-`Before using, check the lib package.json and if you have the line type: module, remove it.`
-
-1. Import the package TypeScript
-
-```js
-    import Validate from 'validate-flag/dist/lib/TypeScript/main.ts';
-```
-
-## Example functions
-Using it is just like using JavaScript, just install the Validate and use the desired function.
-
-
 
 ## Got an error?
 Get in touch with me telling me about the error, which I will resolve as soon as possible.
@@ -192,7 +174,7 @@ Do you have the most updated regex ?? Send me or make a pull request!
 <br/>
 [WHATSAPP](https://api.whatsapp.com/send/?phone=%2B5531989013076&text=Ola%20vim%20pelo%20seu%20primeiro%20projeto%20react&app_absent=0&lang=pt_br)
 <br/>
-limas.devs@gmail.com
+lima.devs@gmail.com
 
 
 

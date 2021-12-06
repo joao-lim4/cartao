@@ -4,7 +4,7 @@ import ValidateToRegex from './lib/utils/ValidateToRegex';
 import GenerateCartao from './lib/utils/GenerateCartao';
 import { OptionDefault, DataCard, ErrorMessage  } from './lib/interfaces/GenerateCartao.interface';
 
-export const Validate: ValidateObject = {
+const Validate: ValidateObject = {
     checkBandeira: (value:string | Array<string>) => checkBandeira(value),
     checkBandeiraToImage:  (value: string | Array<string>) => checkBandeiraToImage(value),
     chekcBandeiraToRegex: (value: string, type: string) => chekcBandeiraToRegex(value, type),
