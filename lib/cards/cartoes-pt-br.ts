@@ -1,16 +1,5 @@
-/*
-    V1.0.0.
-    * object default, esse objeto inclui os pricipais cartoes de credito usados no brasil
-    * 
-*/
-
-/**
- * Bins retirados do sites https://bincheck.io/br/banco-do-brasil,-s.a.
- * Referente ao banco do brasil
- */
-
 const DefautlCards = {
-    masterCard: {
+    mastercard: {
         in: [
             "510524","512112","512119","512286","514009","514078",
             "514094","514895","515891","516004","516064","516066",

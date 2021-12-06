@@ -1,23 +1,27 @@
-import Cards from '../lib/cards/cartoes-pt-br.js';
+import { DataCard , ErrorMessage} from '../interfaces/GenerateCartao.interface';
+import cartoes from '../cards/cartoes-pt-br';
 
-export default class GenerateCartao {
+const Cards = cartoes.DefautlCards;
 
-    constructor(options = null){
-        this._options = {
-            image: true,
-            mask: true,
-            fullData: true,
-            singleNumber: false,
-        };
-        this._initialState = this._options;
+class GenerateCartao{
 
+    private _options:any = {
+        fullData: true,
+        image: true,
+        mask: true,
+        singleNumber: false,
+    };
+    private _optionsInstace:boolean = false;
+    private _initialState:any = {...this._options};
+
+    constructor(options:any){
         if(options){
             this._optionsInstace = true;
             this._generateOptions(options);
         }
     }
 
-    _generateOptions(options){
+    _generateOptions(options: any){
         if(options.singleNumber){
             let instace = this._initialState;
             for(let key in instace){
@@ -33,7 +37,7 @@ export default class GenerateCartao {
         }
     }
 
-    gerarCartao(type){
+    gerarCartao(type:string): DataCard | string | ErrorMessage{
         if(this._optionsInstace){    
             return this._switchCards(type);
         }else{
@@ -42,14 +46,13 @@ export default class GenerateCartao {
         }
     }
 
-
-    _generateNumber(ini){
+    _generateNumber(ini:Array<string> | string):string{
         
         ini = [...ini];
 
         ini = String(ini[Math.floor(Math.random() * (Math.floor(ini.length) - Math.ceil(0)) + Math.ceil(0))]);
 
-        let numberValue = '';
+        let numberValue:string = '';
 
         for(let i = 1; i <= 16; i++){
           
@@ -65,8 +68,7 @@ export default class GenerateCartao {
         return numberValue;
     }
 
-
-    _generateMaks(num){
+    _generateMaks(num:string){
         /* 
             referencia 
             regex tirada do site
@@ -81,7 +83,8 @@ export default class GenerateCartao {
         return num;
     }
 
-    _generateData(card,type){
+
+    _generateData(card:string,type:string):DataCard | string{
         if(this._options.fullData){
             return {
                 success: true,
@@ -124,14 +127,14 @@ export default class GenerateCartao {
     }
 
 
-    _switchCards(type){
+    _switchCards(type:string): DataCard | string | ErrorMessage{
         switch ((type.toLowerCase())) {
             case 'elo':
-                return this._generateData(this._generateNumber(Cards.DefautlCards.elo.in), 'Elo');
+                return this._generateData(this._generateNumber(Cards.elo.in), 'Elo');
             case 'mastercard': 
-                return this._generateData(this._generateNumber(Cards.DefautlCards.masterCard.in), 'MasterCard'); 
+                return this._generateData(this._generateNumber(Cards.mastercard.in), 'MasterCard'); 
             case 'visa':
-                return this._generateData(this._generateNumber(Cards.DefautlCards.visa.in), 'Visa');  
+                return this._generateData(this._generateNumber(Cards.visa.in), 'Visa');  
             default:
                 return {
                     error: true,
@@ -141,5 +144,4 @@ export default class GenerateCartao {
     }
 }
 
-
-export const GenerateMask = num => new GenerateCartao()._generateMaks(num);
+export default GenerateCartao;

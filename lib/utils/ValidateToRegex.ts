@@ -8,10 +8,11 @@
  * Acho que o proximo passo é procurar mais sobre bins de cartões de créditos!
 */
 
-import { GenerateMask } from './GenerateCartao.js'
+// import { GenerateMask } from './GenerateCartao.js'
+import { InitValue, CardValidate, ErrorMessage } from '../interfaces/ValidateToRegex.inteface';
+import { replaceCardNumber } from './ReplaceCardNumber';
 
-
-const __InitValues = {
+const __InitValues: InitValue = {
     __BR: {
         visa: /^4[0-9]{12}(?:[0-9]{3})/,
         mastercard: /^5[1-5][0-9]{14}/,
@@ -41,12 +42,13 @@ const __InitValues = {
 }
 
 
-const forAnyRegex = (__Regex, __number) => {
+const forAnyRegex = (__Regex: any, __number: string): CardValidate | ErrorMessage => {
+
     for(let key in __Regex){
         if(__Regex[key].test(__number)){
             return {
                 value: __number,
-                mask: GenerateMask(__number),
+                mask: '' /*GenerateMask(__number)*/,
                 bandeira: key,
             }
         }
@@ -55,13 +57,14 @@ const forAnyRegex = (__Regex, __number) => {
     return __InitValues.__ERROS.naoEcontrada;
 }
 
-export default (number, type=String('br')) => {
+export default (number: string, type:string=String('br')): any => {
 
-    if(!number || typeof number !== 'string'){
+    if(!number){
         return __InitValues.__ERROS.notValue;
     }
 
     number = number.replace(/[^0-9]+/g, '');
+    number = replaceCardNumber(number);
     
     if((type.toLowerCase()) == 'br'){
         return forAnyRegex(__InitValues.__BR, number);
