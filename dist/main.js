@@ -1,11 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Main_1 = __importDefault(require("./lib/Main"));
-const ValidateToRegex_1 = __importDefault(require("./lib/utils/ValidateToRegex"));
-const GenerateCartao_1 = __importDefault(require("./lib/utils/GenerateCartao"));
+const Main_1 = require("./lib/Main");
+const ValidateToRegex_1 = require("./lib/utils/ValidateToRegex");
+const GenerateCartao_1 = require("./lib/utils/GenerateCartao");
 const Validate = {
     checkBandeira: (value) => checkBandeira(value),
     checkBandeiraToImage: (value) => checkBandeiraToImage(value),
@@ -25,4 +22,3 @@ const gerarCartao = (type, options) => {
     return new GenerateCartao_1.default(options).gerarCartao(type);
 };
 exports.default = Validate;
-//# sourceMappingURL=main.js.map

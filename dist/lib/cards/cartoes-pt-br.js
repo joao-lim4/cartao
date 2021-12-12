@@ -64,4 +64,3 @@ const DefautlCards = {
     }
 };
 exports.default = { DefautlCards };
-//# sourceMappingURL=cartoes-pt-br.js.map

@@ -11,4 +11,3 @@ const replaceCardNumber = (numberCard) => {
     return numberCard;
 };
 exports.replaceCardNumber = replaceCardNumber;
-//# sourceMappingURL=ReplaceCardNumber.js.map

@@ -63,4 +63,3 @@ exports.default = (number, type = String('br')) => {
         return forAnyRegex(__InitValues.__OUTROS, number);
     }
 };
-//# sourceMappingURL=ValidateToRegex.js.map

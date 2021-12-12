@@ -1,10 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const cartoes_pt_br_1 = __importDefault(require("./cards/cartoes-pt-br"));
-const ValidateToRegex_1 = __importDefault(require("./utils/ValidateToRegex"));
+const cartoes_pt_br_1 = require("./cards/cartoes-pt-br");
+const ValidateToRegex_1 = require("./utils/ValidateToRegex");
 const ReplaceCardNumber_1 = require("./utils/ReplaceCardNumber");
 class Main {
     constructor(numero) {
@@ -96,4 +93,3 @@ class Main {
     }
 }
 exports.default = Main;
-//# sourceMappingURL=Main.js.map
