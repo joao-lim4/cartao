@@ -1,11 +1,13 @@
 {
   "name": "validate-flag",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "description": "Essa biblioteca tem como função validar as principais bandeiras de cartões de créditos usados no brasil",
-  "main": "./dist/index.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "start": "ts-node ./main.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"**\\*.ts\"",
+    "teste": "ts-node ./main.ts"
   },
   "repository": {
     "type": "git",
@@ -30,12 +32,14 @@
   },
   "homepage": "https://github.com/joao-lim4/cartao#readme",
   "devDependencies": {
-    "@types/node": "^15.0.1",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "tslint": "^5.12.1",
-    "typescript": "^3.3.3",
-    "ts-node": "^3.0.4"
+    "@types/node": "^14.11.2",
+    "gts": "^3.1.0",
+    "ts-node": "^10.4.0",
+    "tslint": "^6.1.3",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^4.5.2"
   },
   "dependencies": {}
 }
