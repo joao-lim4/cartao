@@ -1,10 +1,11 @@
 {
   "name": "validate-flag",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Essa biblioteca tem como função validar as principais bandeiras de cartões de créditos usados no brasil",
-  "main": "main.ts",
+  "main": "./dist/index.js",
   "scripts": {
-    "start": "ts-node ./main.ts"
+    "start": "ts-node ./main.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
