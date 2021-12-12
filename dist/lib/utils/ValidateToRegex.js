@@ -55,7 +55,7 @@ exports.default = (number, type = String('br')) => {
         return __InitValues.__ERROS.notValue;
     }
     number = number.replace(/[^0-9]+/g, '');
-    number = ReplaceCardNumber_1.replaceCardNumber(number);
+    number = (0, ReplaceCardNumber_1.replaceCardNumber)(number);
     if ((type.toLowerCase()) == 'br') {
         return forAnyRegex(__InitValues.__BR, number);
     }

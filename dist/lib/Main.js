@@ -9,8 +9,8 @@ class Main {
         this.objectBandeiras = cartoes_pt_br_1.default.DefautlCards;
         if (numero) {
             this._fullValue = typeof numero === 'object' ? [...numero.map((num) => {
-                    return ReplaceCardNumber_1.replaceCardNumber(num);
-                })] : [ReplaceCardNumber_1.replaceCardNumber(numero)];
+                    return (0, ReplaceCardNumber_1.replaceCardNumber)(num);
+                })] : [(0, ReplaceCardNumber_1.replaceCardNumber)(numero)];
         }
     }
     _getCardData(type) {
@@ -35,7 +35,7 @@ class Main {
         return nR;
     }
     _privateDefineBandeira(CardValue) {
-        const regexValidate = ValidateToRegex_1.default(CardValue.string, 'br');
+        const regexValidate = (0, ValidateToRegex_1.default)(CardValue.string, 'br');
         if (regexValidate.value) {
             return {
                 success: true,
@@ -71,8 +71,8 @@ class Main {
     }
     _checkBandeiraToImage(value) {
         value = typeof value === 'object' ? [...value.map((num) => {
-                return ReplaceCardNumber_1.replaceCardNumber(num);
-            })] : [ReplaceCardNumber_1.replaceCardNumber(value)];
+                return (0, ReplaceCardNumber_1.replaceCardNumber)(num);
+            })] : [(0, ReplaceCardNumber_1.replaceCardNumber)(value)];
         let newArray = [];
         value.forEach((v, i) => {
             let objectSet = this._privateDefineBandeira(this._removeMasckUnicValue(v, i));

@@ -16,7 +16,7 @@ const checkBandeiraToImage = (value) => {
     return new Main_1.default()._checkBandeiraToImage(value);
 };
 const chekcBandeiraToRegex = (value, type = 'br') => {
-    return ValidateToRegex_1.default(value, type);
+    return (0, ValidateToRegex_1.default)(value, type);
 };
 const gerarCartao = (type, options) => {
     return new GenerateCartao_1.default(options).gerarCartao(type);
